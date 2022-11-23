@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            {{title}}
-        </title>
-    </head>
-    <body>
-        <h1>
-            Hello, {{user.username}}!
-        </h1>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h5>Hello, {{ user.username }}!</h5>
+    {% for post in posts %}
+    <div><p>{{ post.user.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
