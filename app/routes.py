@@ -1,6 +1,6 @@
 from app import app
-
+from flask import render_template
 
 @app.route("/")
 def index():
-    return '<img src="https://media.tenor.com/pJ3GkVJYxUEAAAAC/duck-spinning.gif">' 
+    return render_template("index.html", title = "hello sayer", user = {"username": "David"})
