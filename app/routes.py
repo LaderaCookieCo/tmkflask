@@ -1,6 +1,8 @@
 from app import app
-from flask import render_template
+from flask import render_template, flash, redirect
+from app.forms import LoginForm
 
+@app.route("/index")
 @app.route("/")
 def index():
     posts = [
@@ -10,3 +12,11 @@ def index():
         "body": "My fellow Americans, let me be clear: The short form of racecar driver is not a racist."}
     ]
     return render_template("index.html", title = "Welcome to Bacefook", user = {"username": "David"}, posts = posts)
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash(f'login requested for user {form.username.data}')
+        return redirect('/')
+    return render_template('login.html', title = 'Sign In', form = form)
