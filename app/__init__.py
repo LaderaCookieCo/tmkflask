@@ -1,5 +1,11 @@
 from flask import Flask
-import os
-app = Flask("game",template_folder="app/templates")
-app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY") or "tree"
-from app import routes
+from app.config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
+app = Flask("game", template_folder="app/templates")
+app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+from app import routes, models
