@@ -6,12 +6,12 @@ from app.forms import LoginForm
 @app.route("/")
 def index():
     posts = [
-        {"user": {"username": "Xx_potato_eater_xX}"},
+        {"user": {"username": "Xx_potato_eater_xX"},
         "body": "are you a potato"},
         {"user": {"username": "Former U.S. President Barack Obama"},
-        "body": "My fellow Americans, let me be clear: The short form of racecar driver is not a racist."}
+        "body": "i'm hate twitter"}
     ]
-    return render_template("index.html", title = "Welcome to Bacefook", user = {"username": "David"}, posts = posts)
+    return render_template("index.html", title = "Welcome to Nowhere", user = {"username": "David"}, posts = posts)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
