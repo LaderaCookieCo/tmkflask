@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <link href="static/style.css" rel="stylesheet"></link>
         {% if title %}
@@ -9,8 +10,10 @@
         {% endif %}
     </head>
     <body>
-        <div>Nothing: <a href="{{ url_for("index") }}">Home</a> <a href="{{ url_for("login") }}">Login</a></div>
-        <hr>
+        <div id="navbar">Nothing: <a href="{{ url_for("index") }}">Home</a> <a href="{{ url_for("login") }}">Login</a></div>
+        <div id="main-content">
+            
+        
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
@@ -21,5 +24,6 @@
         {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
+        </div>
     </body>
 </html>
