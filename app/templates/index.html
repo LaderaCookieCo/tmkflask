@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div id="main-content" style="display: flex; justify-content: center; align-items: center;">
+        <textarea class="postenter" name="textarea" id="main-content" rows="5" style="background-color: black; color: white; display: flex; width: 100%; resize: none;"></textarea>
+    </div>
     <h5>Hello, {{ user.username }}!</h5>
     {% for post in posts %}
     <div><p>{{ post.user.username }} says: <b>{{ post.body }}</b></p></div>
